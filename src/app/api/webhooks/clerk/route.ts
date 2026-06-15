@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 import { NextRequest, NextResponse } from "next/server";
 import { Webhook } from "svix";
-import { prisma } from "@/lib/prisma";
+
 
 type ClerkUserEvent = {
   type: "user.created" | "user.updated" | "user.deleted";

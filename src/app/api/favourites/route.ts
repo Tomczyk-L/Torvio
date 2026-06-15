@@ -2,8 +2,8 @@ export const dynamic = 'force-dynamic';
 
 // app/api/favourites/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs/server";
-import { prisma } from "@/lib/prisma";
+
+
 
 async function getUser(clerkId: string) {
   return prisma.user.findUnique({ where: { clerkId } });

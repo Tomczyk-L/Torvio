@@ -2,8 +2,8 @@ export const dynamic = 'force-dynamic';
 
 // app/api/messages/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs/server";
-import { prisma } from "@/lib/prisma";
+
+
 
 export async function POST(req: NextRequest) {
   try {
