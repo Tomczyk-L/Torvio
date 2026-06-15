@@ -1,4 +1,4 @@
-﻿// components/listings/ListingFilters.tsx
+// components/listings/ListingFilters.tsx
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
@@ -107,7 +107,7 @@ export function ListingFilters({ makes }: Props) {
           <option value="">Wszystkie marki</option>
           {makes.map((m) => (
             <option key={m.id} value={m.id}>
-              {m.name} {m._count.listings > 0 ? `(${m._count.listings})` : ""}
+              {m.name} {(m as any)._count.listings > 0 ? `(${(m as any)._count.listings})` : ""}
             </option>
           ))}
         </select>
