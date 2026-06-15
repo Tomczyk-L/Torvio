@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/profil/layout.tsx
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";

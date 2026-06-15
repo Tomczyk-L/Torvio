@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/ogloszenia/nowe/page.tsx
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";

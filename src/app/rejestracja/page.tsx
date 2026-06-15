@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/rejestracja/page.tsx
 import { SignUp } from "@clerk/nextjs";
 import type { Metadata } from "next";

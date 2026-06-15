@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/profil/wiadomosci/page.tsx
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
