@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/api/favourites/[listingId]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/api/listings/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getListings } from "@/lib/listings";

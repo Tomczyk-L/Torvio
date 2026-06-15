@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/api/webhooks/clerk/route.ts
 // Clerk wysyła webhook gdy użytkownik się rejestruje lub zmienia dane.
 // Konfiguracja: Clerk Dashboard → Webhooks → dodaj endpoint /api/webhooks/clerk
