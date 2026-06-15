@@ -1,4 +1,4 @@
-// components/listings/FavouriteButton.tsx
+﻿// components/listings/FavouriteButton.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -45,26 +45,7 @@ export function FavouriteButton({ listingId }: Props) {
       aria-pressed={isFav}
     >
       {isFav ? "♥" : "♡"}
-      <style jsx>{`
-        .fav-btn {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          border: 1px solid var(--c-border);
-          background: var(--c-bg);
-          font-size: 20px;
-          cursor: pointer;
-          transition: all var(--transition);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--c-text-muted);
-          line-height: 1;
-        }
-        .fav-btn:hover { border-color: #e11d48; color: #e11d48; }
-        .fav-btn--active { border-color: #e11d48; color: #e11d48; background: #fff1f2; }
-        .fav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-      `}</style>
+      
     </button>
   );
 }

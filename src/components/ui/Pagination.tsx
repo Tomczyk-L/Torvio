@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 // components/ui/Pagination.tsx
 import Link from "next/link";
@@ -63,54 +63,7 @@ export function Pagination({ page, totalPages, searchParams }: Props) {
         <span className="pagination__btn pagination__btn--disabled" aria-disabled="true">→</span>
       )}
 
-      <style jsx>{`
-        .pagination {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 4px;
-        }
-        .pagination__btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 36px;
-          height: 36px;
-          padding: 0 8px;
-          border-radius: var(--radius-sm);
-          font-size: 14px;
-          font-weight: 500;
-          color: var(--c-text-secondary);
-          background: var(--c-surface);
-          border: 1px solid var(--c-border);
-          transition: all var(--transition);
-          text-decoration: none;
-        }
-        .pagination__btn:not(.pagination__btn--active):not(.pagination__btn--disabled):hover {
-          border-color: var(--c-accent);
-          color: var(--c-accent);
-        }
-        .pagination__btn--active {
-          background: var(--c-accent);
-          border-color: var(--c-accent);
-          color: #fff;
-          pointer-events: none;
-        }
-        .pagination__btn--disabled {
-          opacity: 0.35;
-          pointer-events: none;
-          cursor: default;
-        }
-        .pagination__ellipsis {
-          min-width: 36px;
-          height: 36px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--c-text-muted);
-          font-size: 14px;
-        }
-      `}</style>
+      
     </nav>
   );
 }

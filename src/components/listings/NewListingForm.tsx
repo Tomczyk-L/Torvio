@@ -1,4 +1,4 @@
-// components/listings/NewListingForm.tsx
+﻿// components/listings/NewListingForm.tsx
 "use client";
 
 import { useState, useRef } from "react";
@@ -430,15 +430,7 @@ export function NewListingForm({ makes }: Props) {
           Moje ogłoszenia
         </a>
       </div>
-      <style jsx>{`
-        .done { text-align: center; padding: 64px 32px; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg); }
-        .done__icon { font-size: 48px; margin-bottom: 20px; }
-        .done__title { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin: 0 0 8px; }
-        .done__sub { font-size: 15px; color: var(--c-text-secondary); margin: 0 0 32px; }
-        .done__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .btn-primary { padding: 12px 28px; background: var(--c-accent); color: #fff; border-radius: var(--radius-sm); font-weight: 600; font-size: 15px; }
-        .btn-secondary-link { padding: 12px 28px; border: 1px solid var(--c-border); border-radius: var(--radius-sm); font-size: 15px; color: var(--c-text-secondary); }
-      `}</style>
+      
     </div>
   );
 }
@@ -455,11 +447,7 @@ function Field({ label, error, children }: {
       <label className="field__label">{label}</label>
       {children}
       {error && <span className="field__error" role="alert">{error}</span>}
-      <style jsx>{`
-        .field { display: flex; flex-direction: column; gap: 5px; }
-        .field__label { font-size: 13px; font-weight: 600; color: var(--c-text-secondary); }
-        .field__error { font-size: 12px; color: var(--c-danger); }
-      `}</style>
+      
     </div>
   );
 }

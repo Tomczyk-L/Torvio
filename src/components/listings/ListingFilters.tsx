@@ -1,4 +1,4 @@
-// components/listings/ListingFilters.tsx
+﻿// components/listings/ListingFilters.tsx
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
@@ -259,121 +259,7 @@ export function ListingFilters({ makes }: Props) {
         Szukaj ogłoszeń
       </button>
 
-      <style jsx>{`
-        .filters {
-          background: var(--c-surface);
-          border: 1px solid var(--c-border);
-          border-radius: var(--radius-lg);
-          padding: 20px;
-          position: sticky;
-          top: 80px;
-        }
-        .filters__header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 16px;
-        }
-        .filters__title {
-          font-size: 16px;
-          font-weight: 700;
-          margin: 0;
-        }
-        .filters__clear {
-          font-size: 12px;
-          color: var(--c-accent);
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 4px;
-          font-weight: 500;
-        }
-        .filters__clear:hover { text-decoration: underline; }
-        .filters__section {
-          padding: 14px 0;
-          border-top: 1px solid var(--c-border);
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-        .filters__label {
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--c-text-secondary);
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-        }
-        .filters__select,
-        .filters__input {
-          width: 100%;
-          height: 36px;
-          padding: 0 10px;
-          border: 1px solid var(--c-border);
-          border-radius: var(--radius-sm);
-          font-size: 13px;
-          color: var(--c-text-primary);
-          background: var(--c-bg);
-          transition: border-color var(--transition);
-          font-family: var(--font-sans);
-        }
-        .filters__select:focus,
-        .filters__input:focus {
-          border-color: var(--c-accent);
-          outline: none;
-        }
-        .filters__input--full { width: 100%; }
-        .filters__range {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .filters__range .filters__select,
-        .filters__range .filters__input { flex: 1; }
-        .filters__range-sep {
-          color: var(--c-text-muted);
-          font-size: 14px;
-          flex-shrink: 0;
-        }
-        .filters__chips {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 6px;
-        }
-        .filters__chip {
-          padding: 5px 11px;
-          border-radius: 20px;
-          font-size: 12px;
-          font-weight: 500;
-          border: 1px solid var(--c-border);
-          background: var(--c-bg);
-          color: var(--c-text-secondary);
-          cursor: pointer;
-          transition: all var(--transition);
-        }
-        .filters__chip:hover {
-          border-color: var(--c-accent);
-          color: var(--c-accent);
-        }
-        .filters__chip--active {
-          background: var(--c-accent-light);
-          border-color: var(--c-accent);
-          color: var(--c-accent);
-        }
-        .filters__submit {
-          width: 100%;
-          height: 42px;
-          margin-top: 16px;
-          background: var(--c-accent);
-          color: #fff;
-          border: none;
-          border-radius: var(--radius-sm);
-          font-size: 14px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: background var(--transition);
-        }
-        .filters__submit:hover { background: var(--c-accent-hover); }
-      `}</style>
+      
     </aside>
   );
 }

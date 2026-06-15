@@ -1,4 +1,4 @@
-// components/profile/MyListingsTable.tsx
+﻿// components/profile/MyListingsTable.tsx
 "use client";
 
 import Link from "next/link";
@@ -141,92 +141,7 @@ export function MyListingsTable({ listings }: Props) {
         </tbody>
       </table>
 
-      <style jsx>{`
-        .table-wrap {
-          background: var(--c-surface);
-          border: 1px solid var(--c-border);
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-        }
-        .table {
-          width: 100%;
-          border-collapse: collapse;
-          font-size: 13px;
-        }
-        th {
-          text-align: left;
-          padding: 12px 16px;
-          font-size: 11px;
-          font-weight: 600;
-          color: var(--c-text-muted);
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          background: var(--c-bg);
-          border-bottom: 1px solid var(--c-border);
-        }
-        td { padding: 12px 16px; border-bottom: 1px solid var(--c-border); vertical-align: middle; }
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: var(--c-bg); }
-        .row--loading { opacity: 0.5; pointer-events: none; }
-        .listing-cell { display: flex; align-items: center; gap: 12px; }
-        .listing-thumb {
-          position: relative;
-          width: 56px;
-          height: 42px;
-          border-radius: 6px;
-          overflow: hidden;
-          background: var(--c-bg);
-          border: 1px solid var(--c-border);
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .listing-thumb__empty { font-size: 18px; }
-        .listing-name {
-          display: block;
-          font-weight: 600;
-          color: var(--c-text-primary);
-          margin-bottom: 2px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          max-width: 220px;
-        }
-        .listing-name:hover { color: var(--c-accent); }
-        .listing-meta { font-size: 11px; color: var(--c-text-muted); }
-        .price-cell { font-weight: 700; white-space: nowrap; }
-        .views-cell { color: var(--c-text-secondary); }
-        .status {
-          display: inline-flex;
-          align-items: center;
-          padding: 3px 8px;
-          border-radius: 20px;
-          font-size: 11px;
-          font-weight: 600;
-          white-space: nowrap;
-        }
-        .status--active  { background: var(--c-success-bg);  color: var(--c-success); }
-        .status--draft   { background: var(--c-bg);           color: var(--c-text-muted); border: 1px solid var(--c-border); }
-        .status--sold    { background: var(--c-accent-light); color: var(--c-accent); }
-        .status--expired { background: var(--c-warning-bg);   color: var(--c-warning); }
-        .actions { display: flex; gap: 4px; }
-        .action-btn {
-          width: 32px; height: 32px;
-          border-radius: 6px;
-          border: 1px solid var(--c-border);
-          background: transparent;
-          cursor: pointer;
-          font-size: 14px;
-          display: flex; align-items: center; justify-content: center;
-          transition: all var(--transition);
-          text-decoration: none;
-          color: inherit;
-        }
-        .action-btn:hover { background: var(--c-bg); border-color: var(--c-border-dark); }
-        .action-btn--danger:hover { background: var(--c-danger-bg); border-color: var(--c-danger); }
-        .action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-      `}</style>
+      
     </div>
   );
 }

@@ -1,4 +1,4 @@
-// components/profile/ProfileNav.tsx
+﻿// components/profile/ProfileNav.tsx
 "use client";
 
 import Link from "next/link";
@@ -31,24 +31,7 @@ export function ProfileNav() {
         );
       })}
 
-      <style jsx>{`
-        nav { display: flex; flex-direction: column; gap: 2px; }
-        .nav-item {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 9px 12px;
-          border-radius: var(--radius-sm);
-          font-size: 13px;
-          font-weight: 500;
-          color: var(--c-text-secondary);
-          transition: all var(--transition);
-          text-decoration: none;
-        }
-        .nav-item:hover { background: var(--c-bg); color: var(--c-text-primary); }
-        .nav-item--active { background: var(--c-accent-light); color: var(--c-accent); }
-        .nav-item__icon { font-size: 15px; width: 18px; text-align: center; }
-      `}</style>
+      
     </nav>
   );
 }

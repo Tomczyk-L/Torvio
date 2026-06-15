@@ -1,4 +1,4 @@
-// components/listings/ListingSort.tsx
+﻿// components/listings/ListingSort.tsx
 "use client";
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
@@ -41,33 +41,7 @@ export function ListingSort({ current }: Props) {
         ))}
       </select>
 
-      <style jsx>{`
-        .sort {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .sort__label {
-          font-size: 13px;
-          color: var(--c-text-secondary);
-          white-space: nowrap;
-        }
-        .sort__select {
-          height: 34px;
-          padding: 0 10px;
-          border: 1px solid var(--c-border);
-          border-radius: var(--radius-sm);
-          font-size: 13px;
-          color: var(--c-text-primary);
-          background: var(--c-surface);
-          cursor: pointer;
-          font-family: var(--font-sans);
-        }
-        .sort__select:focus {
-          border-color: var(--c-accent);
-          outline: none;
-        }
-      `}</style>
+      
     </div>
   );
 }

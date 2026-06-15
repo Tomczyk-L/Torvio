@@ -1,4 +1,4 @@
-// components/home/HomeSearch.tsx
+﻿// components/home/HomeSearch.tsx
 "use client";
 
 import { useState } from "react";
@@ -68,48 +68,7 @@ export function HomeSearch({ makes }: Props) {
         Szukaj ogłoszeń
       </button>
 
-      <style jsx>{`
-        .search { display: flex; flex-direction: column; gap: 10px; }
-        .search__label {
-          font-size: 14px;
-          font-weight: 700;
-          color: var(--c-text-primary);
-          margin: 0;
-        }
-        .search__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .search__select,
-        .search__input {
-          height: 44px;
-          padding: 0 14px;
-          border: 1.5px solid var(--c-border);
-          border-radius: var(--radius-sm);
-          font-size: 14px;
-          font-family: var(--font-sans);
-          color: var(--c-text-primary);
-          background: var(--c-bg);
-          width: 100%;
-          transition: border-color var(--transition);
-        }
-        .search__select:focus,
-        .search__input:focus {
-          border-color: var(--c-accent);
-          outline: none;
-        }
-        .search__select:disabled { opacity: 0.5; }
-        .search__btn {
-          height: 48px;
-          background: var(--c-accent);
-          color: #fff;
-          border: none;
-          border-radius: var(--radius-sm);
-          font-size: 15px;
-          font-weight: 700;
-          cursor: pointer;
-          transition: background var(--transition);
-          width: 100%;
-        }
-        .search__btn:hover { background: var(--c-accent-hover); }
-      `}</style>
+      
     </div>
   );
 }
