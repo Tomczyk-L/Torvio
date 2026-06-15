@@ -1,4 +1,7 @@
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
+export const dynamic = 'force-dynamic';
 
 // app/api/webhooks/clerk/route.ts
 // Clerk wysyła webhook gdy użytkownik się rejestruje lub zmienia dane.
