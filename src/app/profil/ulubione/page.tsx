@@ -56,23 +56,7 @@ export default async function UlubiOnePage() {
         </>
       )}
 
-      <style jsx>{`
-        .page-title { font-size: 20px; font-weight: 800; letter-spacing: -0.4px; margin: 0 0 20px; }
-        .count { font-size: 13px; color: var(--c-text-muted); margin: 0 0 16px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-        .empty {
-          text-align: center; padding: 64px 32px;
-          background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg);
-        }
-        .empty__icon { font-size: 40px; margin-bottom: 16px; color: var(--c-text-muted); }
-        .empty__title { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
-        .empty__sub { font-size: 14px; color: var(--c-text-secondary); margin: 0 0 24px; }
-        .empty__btn {
-          display: inline-block; padding: 10px 24px;
-          background: var(--c-accent); color: #fff;
-          border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
-        }
-      `}</style>
+      
     </div>
   );
 }

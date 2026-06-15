@@ -6,7 +6,7 @@ import { ListingCard } from "@/components/listings/ListingCard";
 import { HomeSearch } from "@/components/home/HomeSearch";
 
 export const metadata: Metadata = {
-  title: "Automarket — ogłoszenia samochodowe bez prowizji",
+  title: "Torvio — ogłoszenia samochodowe bez prowizji",
   description: "Kupuj i sprzedawaj auta bez prowizji. Tysiące ogłoszeń samochodowych w całej Polsce.",
 };
 

@@ -89,49 +89,7 @@ export default async function WiadomosciPage() {
         </div>
       )}
 
-      <style jsx>{`
-        .page-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-        .page-title { font-size: 20px; font-weight: 800; letter-spacing: -0.4px; margin: 0; }
-        .unread-badge {
-          background: var(--c-accent); color: #fff;
-          font-size: 11px; font-weight: 700;
-          width: 20px; height: 20px; border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-        }
-        .threads { display: flex; flex-direction: column; gap: 0; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg); overflow: hidden; }
-        .thread {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 14px 16px;
-          border-bottom: 1px solid var(--c-border);
-          transition: background var(--transition);
-          text-decoration: none;
-          color: inherit;
-        }
-        .thread:last-child { border-bottom: none; }
-        .thread:hover { background: var(--c-bg); }
-        .thread--unread { background: var(--c-accent-light); }
-        .thread--unread:hover { background: #dbeafe; }
-        .thread__avatar {
-          width: 42px; height: 42px; border-radius: 50%;
-          background: var(--c-bg); color: var(--c-text-secondary);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 16px; font-weight: 700; flex-shrink: 0;
-          border: 1px solid var(--c-border);
-        }
-        .thread__body { flex: 1; min-width: 0; }
-        .thread__top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 2px; }
-        .thread__name { font-size: 14px; font-weight: 700; }
-        .thread__time { font-size: 11px; color: var(--c-text-muted); flex-shrink: 0; }
-        .thread__listing { font-size: 12px; color: var(--c-accent); margin: 0 0 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .thread__preview { font-size: 13px; color: var(--c-text-secondary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .thread__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-accent); flex-shrink: 0; }
-        .empty { text-align: center; padding: 64px 32px; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg); }
-        .empty__icon { font-size: 40px; margin-bottom: 16px; }
-        .empty__title { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
-        .empty__sub { font-size: 14px; color: var(--c-text-secondary); margin: 0; }
-      `}</style>
+      
     </div>
   );
 }

@@ -1,0 +1,220 @@
+// schema.prisma
+// Automarket — alternatywa dla OtoMoto
+// Uruchom: npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────
+// UŻYTKOWNICY
+// ─────────────────────────────────────────
+
+model User {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clerkId    String   @unique @map("clerk_id")
+  email      String   @unique
+  name       String
+  phone      String?
+  avatarUrl  String?  @map("avatar_url")
+  isDealer   Boolean  @default(false) @map("is_dealer")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  dealer     Dealer?
+  listings   Listing[]
+  favourites Favourite[]
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+
+  @@map("users")
+}
+
+model Dealer {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId      String   @unique @map("user_id") @db.Uuid
+  companyName String   @map("company_name")
+  nip         String   @unique
+  address     String
+  city        String
+  verified    Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("dealers")
+}
+
+// ─────────────────────────────────────────
+// KATALOG AUT
+// ─────────────────────────────────────────
+
+model Make {
+  id       Int     @id @default(autoincrement())
+  name     String  @unique
+  slug     String  @unique
+  logoUrl  String? @map("logo_url")
+
+  models   Model[]
+  listings Listing[]
+
+  @@map("makes")
+}
+
+model Model {
+  id       Int      @id @default(autoincrement())
+  makeId   Int      @map("make_id")
+  name     String
+  slug     String
+  bodyType String?  @map("body_type") // sedan | suv | kombi | hatchback | coupe | cabrio | van | pickup
+
+  make     Make     @relation(fields: [makeId], references: [id], onDelete: Cascade)
+  listings Listing[]
+
+  @@unique([makeId, slug])
+  @@index([makeId])
+  @@map("models")
+}
+
+// ─────────────────────────────────────────
+// OGŁOSZENIA
+// ─────────────────────────────────────────
+
+model Listing {
+  id           String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId       String        @map("user_id") @db.Uuid
+  makeId       Int           @map("make_id")
+  modelId      Int           @map("model_id")
+
+  // Podstawowe dane
+  title        String        // generowany: "Volkswagen Golf 2.0 TDI 2019"
+  slug         String        @unique // np. "volkswagen-golf-tdi-2019-warszawa-abc123"
+  description  String        @db.Text
+
+  // Szczegóły auta
+  year         Int
+  mileage      Int           // kilometry
+  price        Int           // w groszach (PLN × 100)
+  fuelType     FuelType      @map("fuel_type")
+  transmission Transmission
+  engineCc     Int?          @map("engine_cc")   // pojemność cm³
+  powerHp      Int?          @map("power_hp")    // KM
+  color        String?
+  doors        Int?
+  seats        Int?
+  vin          String?       @unique
+
+  // Lokalizacja
+  city         String
+  voivodeship  String
+
+  // Stan ogłoszenia
+  status       ListingStatus @default(DRAFT)
+  isFeatured   Boolean       @default(false) @map("is_featured")
+  viewsCount   Int           @default(0) @map("views_count")
+  expiresAt    DateTime?     @map("expires_at")
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+
+  // Full-text search (aktualizowany triggerem w PostgreSQL)
+  searchVector Unsupported("tsvector")? @map("search_vector")
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  make         Make          @relation(fields: [makeId], references: [id])
+  model        Model         @relation(fields: [modelId], references: [id])
+  images       ListingImage[]
+  favourites   Favourite[]
+  messages     Message[]
+
+  @@index([status, createdAt(sort: Desc)])
+  @@index([makeId, modelId])
+  @@index([price])
+  @@index([year])
+  @@index([voivodeship])
+  @@index([isFeatured])
+  @@map("listings")
+}
+
+model ListingImage {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  listingId String   @map("listing_id") @db.Uuid
+  url       String   // Cloudinary URL
+  position  Int      @default(0)
+  isCover   Boolean  @default(false) @map("is_cover")
+
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@index([listingId])
+  @@map("listing_images")
+}
+
+// ─────────────────────────────────────────
+// INTERAKCJE
+// ─────────────────────────────────────────
+
+model Favourite {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  listingId String   @map("listing_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, listingId])
+  @@index([userId])
+  @@map("favourites")
+}
+
+model Message {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  listingId  String    @map("listing_id") @db.Uuid
+  senderId   String    @map("sender_id") @db.Uuid
+  receiverId String    @map("receiver_id") @db.Uuid
+  body       String    @db.Text
+  readAt     DateTime? @map("read_at")
+  createdAt  DateTime  @default(now()) @map("created_at")
+
+  listing    Listing   @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  sender     User      @relation("SentMessages", fields: [senderId], references: [id])
+  receiver   User      @relation("ReceivedMessages", fields: [receiverId], references: [id])
+
+  @@index([senderId, receiverId])
+  @@index([listingId])
+  @@map("messages")
+}
+
+// ─────────────────────────────────────────
+// ENUMY
+// ─────────────────────────────────────────
+
+enum FuelType {
+  PETROL    // benzyna
+  DIESEL
+  ELECTRIC
+  HYBRID
+  LPG
+  CNG
+
+  @@map("fuel_type")
+}
+
+enum Transmission {
+  MANUAL
+  AUTOMATIC
+
+  @@map("transmission")
+}
+
+enum ListingStatus {
+  DRAFT    // szkic, niewidoczne
+  ACTIVE   // aktywne, widoczne
+  SOLD     // sprzedane
+  EXPIRED  // wygasło (po 30 dniach)
+
+  @@map("listing_status")
+}

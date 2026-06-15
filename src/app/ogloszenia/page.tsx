@@ -116,72 +116,7 @@ export default async function OgloszeniaPage({ searchParams }: PageProps) {
         </div>
       </div>
 
-      <style jsx>{`
-        .page {
-          padding: 32px 0 64px;
-        }
-        .page__layout {
-          display: grid;
-          grid-template-columns: 280px 1fr;
-          gap: 28px;
-          align-items: start;
-        }
-        .page__sidebar {
-          /* sticky jest w samym komponencie ListingFilters */
-        }
-        .page__main {
-          min-width: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-        .results__header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 16px;
-          flex-wrap: wrap;
-        }
-        .results__meta {
-          display: flex;
-          align-items: baseline;
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-        .results__title {
-          font-size: 20px;
-          font-weight: 700;
-          margin: 0;
-          letter-spacing: -0.4px;
-        }
-        .results__title em {
-          font-style: normal;
-          color: var(--c-accent);
-        }
-        .results__count {
-          font-size: 14px;
-          color: var(--c-text-muted);
-        }
-        .results__grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-          gap: 16px;
-        }
-        .results__pagination {
-          margin-top: 8px;
-        }
-        @media (max-width: 900px) {
-          .page__layout {
-            grid-template-columns: 1fr;
-          }
-          .page__sidebar {
-            order: 2;
-          }
-          .page__main {
-            order: 1;
-          }
-        }
-      `}</style>
+      
     </div>
   );
 }
@@ -235,22 +170,7 @@ function ActiveFilterTags({
           {tag.label}
         </span>
       ))}
-      <style jsx>{`
-        .active-filters {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 6px;
-        }
-        .active-filter {
-          font-size: 12px;
-          font-weight: 500;
-          padding: 4px 10px;
-          background: var(--c-accent-light);
-          color: var(--c-accent);
-          border-radius: 20px;
-          border: 1px solid #c0d8fc;
-        }
-      `}</style>
+      
     </div>
   );
 }
@@ -271,26 +191,7 @@ function EmptyState({ hasFilters }: { hasFilters: boolean }) {
           ? "Spróbuj zmienić lub wyczyścić filtry, żeby zobaczyć więcej ogłoszeń."
           : "Jeszcze nie ma żadnych ogłoszeń. Dodaj pierwsze!"}
       </p>
-      <style jsx>{`
-        .empty {
-          padding: 64px 32px;
-          text-align: center;
-          background: var(--c-surface);
-          border: 1px solid var(--c-border);
-          border-radius: var(--radius-lg);
-        }
-        .empty__icon { font-size: 40px; margin-bottom: 16px; }
-        .empty__title {
-          font-size: 18px;
-          font-weight: 700;
-          margin: 0 0 8px;
-        }
-        .empty__desc {
-          font-size: 14px;
-          color: var(--c-text-secondary);
-          margin: 0;
-        }
-      `}</style>
+      
     </div>
   );
 }
