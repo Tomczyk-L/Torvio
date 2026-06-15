@@ -197,7 +197,7 @@ function EmptyState({ hasFilters }: { hasFilters: boolean }) {
 }
 
 // Skeleton dla Suspense
-export function ListingsGridSkeleton() {
+function ListingsGridSkeleton() {
   return (
     <div style={{
       display: "grid",
