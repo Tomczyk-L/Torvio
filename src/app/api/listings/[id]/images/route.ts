@@ -2,8 +2,8 @@ export const dynamic = 'force-dynamic';
 
 // app/api/listings/[id]/images/route.ts
 import { NextRequest, NextResponse } from "next/server";
-
-
+import { auth } from "@clerk/nextjs/server";
+import { prisma } from "@/lib/prisma";
 import { uploadListingImage } from "@/lib/cloudinary";
 
 export async function POST(
